@@ -1,5 +1,6 @@
 import tensorflow as tf
 import numpy as np
+import os
 
 def validate_saved_model(saved_model_dir):
     try:
@@ -33,4 +34,6 @@ def validate_saved_model(saved_model_dir):
         print(f"[ERROR] TensorFlow Model Validation Failed 🚨: {e}")
 
 if __name__ == "__main__":
-    validate_saved_model(r"C:\Users\Nathaniel de Guzman\PycharmProjects\newThesis\model_saved")
+    CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+    validate_saved_model(os.path.join(CURRENT_DIR, "model_saved"))
+    
